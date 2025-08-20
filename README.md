@@ -1,21 +1,30 @@
-# Docker Networking Visualization
+# Docker Network Monitoring with Weave Scope
 
-این پروژه ابزاری ساده برای مشاهده و بررسی ارتباطات شبکه‌ای بین کانتینرهای Docker است.  
-با استفاده از [Weave Scope](https://www.weave.works/oss/scope/) می‌توانید گرافی از زیرساخت Docker خود داشته باشید و ببینید کدام کانتینرها با یکدیگر در ارتباط هستند.  
+This project is a simple tool to visualize and inspect network connections between Docker containers. Using **Weave Scope**, you can see a real-time graph of your Docker infrastructure and understand which containers are communicating with each other.
 
----
+## Setup
 
-## 🚀 ویژگی‌ها
-- نمایش زنده ارتباطات بین کانتینرها، هاست و سرویس‌ها
-- رابط کاربری گرافیکی برای مانیتورینگ بهتر
-- امکان بررسی ارتباطات شبکه‌ای در معماری‌های پیچیده
-- مناسب برای تیم‌های DevOps و توسعه‌دهندگان
+The project includes two Docker Compose files:
 
----
+- `docker-compose-Probe.yml` – sets up the probe container to collect metrics from your Docker environment.
+- `docker-compose-ScopeApp.yml` – launches the Weave Scope application for visualizing container interactions.
 
-## 📦 نصب و اجرا
+## How to Use
 
-### 1. کلون کردن پروژه
+1. Start the probe:
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+docker-compose -f docker-compose-Probe.yml up -d
+```
+
+2. Start the Scope application:
+```bash
+docker-compose -f docker-compose-ScopeApp.yml up -d
+```
+
+3. Open your browser and access the Weave Scope dashboard to explore the network graph of your containers.
+
+## Features
+
+- Real-time monitoring of Docker containers
+- Interactive network topology visualization
+- Helps identify communication patterns between containers
