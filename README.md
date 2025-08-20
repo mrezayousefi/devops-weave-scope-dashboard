@@ -6,22 +6,25 @@ This project is a simple tool to visualize and inspect network connections betwe
 
 The project includes two Docker Compose files:
 
-- `docker-compose-Probe.yml` – sets up the probe container to collect metrics from your Docker environment.
-- `docker-compose-ScopeApp.yml` – launches the Weave Scope application for visualizing container interactions.
+- `docker-compose-Probe.yml` – sets up the probe container to collect metrics from your Docker environment on all servers.
+- `docker-compose-ScopeApp.yml` – launches the Weave Scope application **on the main (prod) server only** to visualize container interactions.
 
 ## How to Use
 
-1. Start the probe:
+1. On all servers, start the probe:
 ```bash
 docker-compose -f docker-compose-Probe.yml up -d
 ```
 
-2. Start the Scope application:
+2. start the Scope application:
 ```bash
 docker-compose -f docker-compose-ScopeApp.yml up -d
 ```
 
 3. Open your browser and access the Weave Scope dashboard to explore the network graph of your containers.
+```bash
+http://"server svope":4040
+```
 
 ## Features
 
