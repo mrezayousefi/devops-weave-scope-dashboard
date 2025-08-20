@@ -23,7 +23,7 @@ docker-compose -f docker-compose-ScopeApp.yml up -d
 
 3. Open your browser and access the Weave Scope dashboard to explore the network graph of your containers.
 ```bash
-http://"server svope":4040
+http://"server scope":4040
 ```
 
 ## Features
