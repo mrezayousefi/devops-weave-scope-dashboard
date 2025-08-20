@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  weavescope:
+    image: weaveworks/scope:1.13.2
+    container_name: weavescope-probe
+    privileged: true
+    pid: host
+    network_mode: "host"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: scope launch "server":4040
